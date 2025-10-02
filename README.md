@@ -1,59 +1,103 @@
-# MongoDB Fundamentals - Week 1
+# MongoDB Queries – Week 1 Assignment
 
-## Setup Instructions
+This project contains MongoDB queries for **CRUD operations, advanced queries, aggregation pipelines, and indexing** as part of the Week 1 MongoDB Fundamentals assignment.
 
-Before you begin this assignment, please make sure you have the following installed:
+---
 
-1. **MongoDB Community Edition** - [Installation Guide](https://www.mongodb.com/docs/manual/administration/install-community/)
-2. **MongoDB Shell (mongosh)** - This is included with MongoDB Community Edition
-3. **Node.js** - [Download here](https://nodejs.org/)
+##  Requirements
 
-### Node.js Package Setup
+Before running the queries, make sure you have:
 
-Once you have Node.js installed, run the following commands in your assignment directory:
+- [MongoDB Community Edition](https://www.mongodb.com/try/download/community) OR [MongoDB Atlas](https://www.mongodb.com/atlas/database)
+- [MongoDB Shell (mongosh)](https://www.mongodb.com/docs/mongodb-shell/)
+- A database called **plp_bookstore**
+- A collection called **books** populated with at least 10 documents (use the provided `insert_books.js` script)
 
+---
+
+##  Files
+
+- `queries.js` → Contains all MongoDB queries (CRUD, advanced queries, aggregation, and indexing)
+
+---
+
+## Running the Queries
+
+### 1. Start MongoDB
+If running locally:
 ```bash
-# Initialize a package.json file
-npm init -y
+net start MongoDB   # Windows (run as Administrator)
+or:
 
-# Install the MongoDB Node.js driver
-npm install mongodb
-```
+bash
+Copy code
+mongod --dbpath "C:\data\db"
+2. Open MongoDB Shell
+bash
+Copy code
+mongosh
+3. Switch to the Database
+js
+Copy code
+use plp_bookstore
+4. Load the Queries
+From inside the MongoDB shell:
 
-## Assignment Overview
+js
+Copy code
+load("queries.js")
+This will execute all queries saved in the file.
 
-This week focuses on MongoDB fundamentals including:
-- Creating and connecting to MongoDB databases
-- CRUD operations (Create, Read, Update, Delete)
-- MongoDB queries and filters
-- Aggregation pipelines
-- Indexing for performance
+Queries Included
+CRUD Operations
 
-## Submission
+Find all books in a genre
 
-Complete all the exercises in this assignment and push your code to GitHub using the provided GitHub Classroom link.
+Find books published after a given year
 
-## Getting Started
+Find books by a specific author
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+Update the price of a book
 
-## Files Included
+Delete a book by title
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+Advanced Queries
 
-## Requirements
+Find books in stock and published after 2010
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+Projection (only title, author, price)
 
-## Resources
+Sorting by price (ascending & descending)
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+Pagination (skip/limit)
+
+Aggregation Pipelines
+
+Average price of books by genre
+
+Find the author with the most books
+
+Group books by decade and count them
+
+Indexing
+
+Create an index on title
+
+Create a compound index on author + published_year
+
+Use explain() to check query performance
+
+Expected Output
+A functioning MongoDB database called plp_bookstore
+
+A books collection with sample data
+
+Queries that demonstrate:
+
+CRUD operations
+
+Filtering, projection, sorting, and pagination
+
+Aggregation and data transformation
+
+Indexing with performance analysis
